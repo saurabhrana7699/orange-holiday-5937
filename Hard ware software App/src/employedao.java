@@ -13,6 +13,8 @@ public interface employedao {
 	
 	public String updatepass(String uname ,String password);
 	
+	public String searchempfromcategoary(String cat);
+	
 	
 	
 	

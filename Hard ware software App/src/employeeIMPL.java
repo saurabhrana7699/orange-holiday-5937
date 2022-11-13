@@ -141,4 +141,39 @@ public class employeeIMPL implements employedao {
 		return msg;
 	}
 
+	@Override
+	public String searchempfromcategoary(String cat) {
+		
+	
+		String msg = "No one Employee with this category";
+	try(Connection con=	daoutil.provideConnection()) {
+	PreparedStatement ps =	con.prepareStatement("select * from hod where category = ?");
+	ps.setString(1, cat);
+	ResultSet rs = ps.executeQuery();
+
+		while(rs.next()) {
+			String s = rs.getString("username");
+			String p = rs.getString("password");
+			String d = rs.getString("category");
+
+				System.out.println(msg=	 "Username : "+s);
+				System.out.println	( msg="Password : "+p);
+				System.out.println( msg="Category : "+d);
+				System.out.println();
+			
+				System.out.println("***********************************");
+		
+		}
+		
+	
+	
+	
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return msg;
+	
+	}
+
 }
